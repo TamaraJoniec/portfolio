@@ -27,21 +27,23 @@ body {
 .name {
     text-align: flex-start;
     margin: 30px;
+    width: auto;
     font-weight:lighter;
-    font-size: 70px;
+    font-size: 50px;
     color:orange;
     letter-spacing: 0.5px;
 }
 .subHeading {
     font-weight: lighter;
+    width:auto;
     margin: 30px;
-    font-size: 50px;
+    font-size: 30px;
     position:relative;
-    top:-15%;
+    top:-10%;
   }
 
 #navigation {
-    position:absolute;
+    position:top right;
     top: 10%;
     display: flex;
     width: 50%;
@@ -53,12 +55,12 @@ body {
 
 p {
     color:white;
-    font-size: 40px;
+    font-size: 25px;
     position:relative;
-    align-items:center;
-    top:-15%;
-    left:30px;
-    margin: 30px;
+    align-items:flex-start;
+    top:5%;
+    left:20px;
+    margin: 20px;
     gap:10px;
 }
 
@@ -66,10 +68,9 @@ p {
 /* hero banner */
 #headline1 {
     background-color: rgba(0, 0, 0, 0.395);
-    padding: 60px;
-    height: 400px;
+    padding: 50px;
+    height: 120px;
     color: rgb(26, 26, 26);
-    font-size: 18px;
   }
 #heroGrid {
     margin: 0px;
@@ -93,7 +94,7 @@ p {
         margin: 0px;
         display: grid;
         grid-area:stretch;
-        background-color: white;
+        background-color: rgba(0, 0, 0, 0.838);
         grid-template-rows: 500px 500px;
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
@@ -101,7 +102,7 @@ p {
         "project4 project5"
         ;
       }
-      #project2 {
+      #project2 { 
         grid-area: project2;
         background-image: url("../images/Restaurant-website.jpg");
         background-size: cover;
@@ -135,22 +136,38 @@ p {
         opacity:1.0}
     #project5:hover {
         opacity:1.0}
+    
+    #overlay {  
+        grid-template-areas: "project2 project3"
+        "project4 project5";
+        background-color: rgba(0, 0, 0, 0.857);
+        padding: 50px;
+        height: 120px;
+        z-index: 2;
+        cursor: pointer;}
 
         .projectGridArea {
+            display:grid;
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
             cursor: pointer;
             display: grid;
             align-content: end;
+            
           }
           
           .heading {
-            padding: 15px;
-            height: 500px;
-            color: rgb(26, 26, 26);
-            font-size: 18px;
+           padding: 15px;
+           grid-area:center;
+           position: relative;
+           bottom: 150px;
+            color: White;
+            font-size: 30px;
             border-bottom: 5px solid rgb(29, 29, 29) ;
+          }
+          .heading:hover {
+            opacity:1px
           }
 
     /* Profile and information */
@@ -172,12 +189,15 @@ p {
 
 /* media queries */
 @media only screen and (max-width:1000px) {
+    #navBar {display:wrap}
     #navigation {display:none}
     #navigation {display: inline-block}
   }
   
   @media only screen and (max-width:600px) {
-     #headline { position:static;
+    
+    #header { display:flex}
+    #headline { position:static;
                   margin: 20px;}
     #navigation {display:none}
     #navigation {display: inline-block}
