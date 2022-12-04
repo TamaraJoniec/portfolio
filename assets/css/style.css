@@ -13,12 +13,12 @@ body {
 #navBar {
     display: flex;
     flex-direction: row;
+    color:grey;
     margin: 0px 5%;
-     gap:10px auto;
-   
+    gap:10px auto;
   }
 #logo {
-    max-width: 100px;
+    min-width: 150px;
     margin: 20px auto;
     padding: -2rem 1.5rem;
     padding-right: 1rem;
@@ -26,33 +26,51 @@ body {
 }
 .name {
     text-align: flex-start;
-    width: 300px;
     margin: 30px;
     font-weight:lighter;
-    font-size: xx-large;
+    font-size: 70px;
     color:orange;
     letter-spacing: 0.5px;
 }
 .subHeading {
     font-weight: lighter;
-    width:500px;
     margin: 30px;
-    font-size: 1.5em;
+    font-size: 50px;
     position:relative;
     top:-15%;
   }
 
 #navigation {
+    position:absolute;
+    top: 10%;
     display: flex;
     width: 50%;
     align-items: center;
     justify-content: space-evenly;
     gap:20px;
+    color:grey
   }
+
+p {
+    color:white;
+    font-size: 40px;
+    position:relative;
+    align-items:center;
+    top:-15%;
+    left:30px;
+    margin: 30px;
+    gap:10px;
+}
 
 
 /* hero banner */
-
+#headline1 {
+    background-color: rgba(0, 0, 0, 0.395);
+    padding: 60px;
+    height: 400px;
+    color: rgb(26, 26, 26);
+    font-size: 18px;
+  }
 #heroGrid {
     margin: 0px;
     display: grid;
