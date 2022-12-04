@@ -1,3 +1,14 @@
+/* Header */
+.container {
+    display:flex;    
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+#navigation {
+    justify-content: flex-end;    
+}
+
 .selfie {
     max-width: 225px; height:auto;
 }
