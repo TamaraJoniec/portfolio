@@ -1,9 +1,20 @@
 
 body {
      font-family:century gothic; Century gothic Bold; Century Gothic Bold Italic, Century Gothic Italic;
+     color:#424949;
      margin: 0px 5%;
      gap:10px auto;
     }
+
+body { 
+    background-image: url("../images/pinkjf.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    }
+
+
 /* Header */
 #navBar {
     display: flex;
@@ -41,7 +52,7 @@ body {
     justify-content: space-evenly;
     gap:20px;
   }
-
+/* Profile and information */
 .selfie {
     max-width: 200px; height:auto;
     position: ;
@@ -49,10 +60,27 @@ body {
     padding: 0.5rem;
     border: 3px solid orange ;
     border-style: dashed;
+    z-index:100px;
 }
 
 /* hero banner */
+/* Grid CSS */
 
+#heroGrid {
+    margin: 0px;
+    display: grid;
+    min-height: 500px;
+    height: 70vh;
+    grid-template-rows: 75% 25%;
+    grid-template-columns: 75% 25%;
+    grid-template-areas:
+    "featuredProduct secondaryProduct"
+  }
+#featuredProduct {
+    grid-area: featuredProduct;
+   
+    position: relative;
+    }
 
 
 /* media queries */
