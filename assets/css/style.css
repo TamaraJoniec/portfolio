@@ -44,7 +44,7 @@ body {
 
 .selfie {
     max-width: 200px; height:auto;
-    position: relative;
+    position: ;
     margin: 1  1.5;
     padding: 0.5rem;
     border: 3px solid orange ;
@@ -52,6 +52,33 @@ body {
 }
 
 /* hero banner */
+
+
+
+/* media queries */
+@media only screen and (max-width:1000px) {
+    #navigation {display:none}
+    #navigation {display: inline-block}
+  }
+  
+  @media only screen and (max-width:600px) {
+     #headline { position:static;
+                  margin: 20px;}
+    #navigation {display:none}
+    #navigation {display: inline-block}
+    
+     #heroGrid {grid-template-areas: "featuredProduct"}  
+                                     
+     #projectGrid {grid-template-rows:
+                    300px 300px;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: 
+                    'project2'
+                    'project3'
+                    'project4'
+                    'project5'} 
+    
+    }
 
 
 
