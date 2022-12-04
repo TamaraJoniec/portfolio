@@ -26,6 +26,7 @@ body {
     margin: 20px auto;
     padding: -2rem 1.5rem;
     padding-right: 1rem;
+    
 }
 .name {
     text-align: flex-start;
@@ -33,7 +34,7 @@ body {
     margin: 30px;
     font-weight:lighter;
     font-size: xx-large;
-    color:#424949;
+    color:orange;
     letter-spacing: 0.5px;
 }
 .subHeading {
