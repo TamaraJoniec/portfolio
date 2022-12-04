@@ -1,24 +1,20 @@
-
-body {
-     font-family:century gothic; Century gothic Bold; Century Gothic Bold Italic, Century Gothic Italic;
-     color:#424949;
-     margin: 0px 5%;
-     gap:10px auto;
-    }
+:root {
+    --mainfont: orange;
+    --greyfont: grey;
+  }
 
 body { 
-    background-image: url("../images/electric.png");
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
     align-items: center;
-    }
+     font-family:century gothic; Century gothic Bold; Century Gothic Bold Italic, Century Gothic Italic;
+     color:grey}
 
 
 /* Header */
 #navBar {
     display: flex;
     flex-direction: row;
+    margin: 0px 5%;
+     gap:10px auto;
    
   }
 #logo {
@@ -53,36 +49,108 @@ body {
     justify-content: space-evenly;
     gap:20px;
   }
-/* Profile and information */
-.selfie {
-    max-width: 200px; height:auto;
-    position: ;
-    margin: 1  1.5;
-    padding: 0.5rem;
-    border: 3px orange;
-    border-style: dashed;
-    z-index:100px;
-}
+
 
 /* hero banner */
-/* Grid CSS */
 
 #heroGrid {
     margin: 0px;
     display: grid;
     min-height: 500px;
     height: 70vh;
-    grid-template-rows: 75% 25%;
-    grid-template-columns: 75% 25%;
-    grid-template-areas:
-    "featuredProduct secondaryProduct"
+  
   }
 #featuredProduct {
-    grid-area: featuredProduct;
-   
+    margin: 0px;
+    display: grid;
+    min-height: 500px;
+    height: 70vh;
     position: relative;
+    background-image: url("../images/modern-colorful-landing-page-website-design-template-background-layered-paper-texture-style-vector_490655-6.webp");
+    background-size: cover;
+
+    }
+/* Grid CSS */
+#projectGrid {
+        margin: 0px;
+        display: grid;
+        grid-area:stretch;
+        background-color: white;
+        grid-template-rows: 500px 500px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "project2 project3"
+        "project4 project5"
+        ;
+      }
+      #project2 {
+        grid-area: project2;
+        background-image: url("../images/Restaurant-website.jpg");
+        background-size: cover;
+        opacity:0.5;}
+      
+      #project3 {
+        grid-area: project3;
+        background-image: url("../images/Marketing-website.jpg");
+        background-size: cover;
+        opacity:0.5;}
+      
+      #project4 {
+        grid-area: project4;
+        background-image: url("../images/placeholder1.png");
+        background-size: contain;
+        opacity:0.5;
+      }
+      
+      #project5 {
+        grid-area: project5;
+        background-image: url("../images/Furniture-store-website.jpg");
+        background-size:cover;
+        opacity:0.5;
+      }
+
+    #project2:hover {
+        opacity:1.0}
+    #project3:hover {
+        opacity:1.0}
+    #project4:hover {
+        opacity:1.0}
+    #project5:hover {
+        opacity:1.0}
+
+        .projectGridArea {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            display: grid;
+            align-content: end;
+          }
+          
+          .heading {
+            padding: 15px;
+            height: 500px;
+            color: rgb(26, 26, 26);
+            font-size: 18px;
+            border-bottom: 5px solid rgb(29, 29, 29) ;
+          }
+
+    /* Profile and information */
+    .selfie {
+        max-width: 200px; height:auto;
+        position: ;
+        margin: 1  1.5;
+        padding: 0.5rem;
+        border: 3px orange;
+        border-style: dashed;
+        z-index:100px;
     }
 
+    /* footer */
+
+    footer {
+        background-color:white
+    }
 
 /* media queries */
 @media only screen and (max-width:1000px) {
