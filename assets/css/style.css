@@ -3,40 +3,49 @@ body {
      font-family:century gothic; Century gothic Bold; Century Gothic Bold Italic, Century Gothic Italic;
 }
 /* Header */
-
-.name  {
-    text-align: center;
+#navBar {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 5%;
+    gap:10px auto;
+  }
+#logo {
+    max-width: 100px;
+    margin: 20px auto;
+    padding: -2rem 1.5rem;
+    padding-right: 1rem;
+}
+.name {
+    text-align: flex-start;
     width: 300px;
     margin: 50px auto;
+    font-weight:lighter;
+    font-size: xx-large;
+    color:#424949;
+    font-stretch:extra-expanded;
 }
 .subHeading {
     text-align: center;
     width: 300px;
     margin: 50px auto;
+    font-weight: lighter;
   }
-#navBar {
-    display: flex;
-    flex-direction: row;
-    margin: 0px 5%;
-  }
+
 #navigation {
     display: flex;
     width: 50%;
     align-items: center;
     justify-content: space-evenly;
+    gap:20px;
   }
 
 .selfie {
-    max-width: 225px; height:auto;
+    max-width: 200px; height:auto;
     position: relative;
     margin: -2rem  1.5rem 2%;
     padding: 0.5rem;
     border: 3px solid orange ;
     border-style: dashed;
-     stroke-dasharray: 5px;
-     stroke-dashoffset:'';
-     stroke-linecap:'square';
-
 }
 
 /* hero banner */
