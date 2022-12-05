@@ -23,6 +23,7 @@ body {
     display: flex;
     width: 100%;
     justify-content: flex-end;
+    text-align: space-evenly;
     gap: 20px;
     color: grey;
    
@@ -66,23 +67,35 @@ body {
 .highlight:hover {
   color:orange
 }
+
+/* hero banner */
+.mainTitle {
+  color:white;
+  font-size:50px ;
+  font-weight:lighter;
+    letter-spacing: 5px;
+    text-align: flex-start;
+    margin: 30px;
+    top: 10px;
+    left:
+   
+
+}
 p {
     color:white;
     font-size: 25px;
     position:relative;
-    align-items:flex-start;
-    top:5%;
-    left:20px;
-    margin: 20px;
+    justify-content: center;
+    align-items:center;
+    left:30px;
+    margin: center;
     gap:10px;
 }
 
-
-/* hero banner */
 #headline1 {
-    background-color: rgba(0, 0, 0, 0.395);
+    background-color: rgba(0, 0, 0, 0.539);
     padding: 50px;
-    height: 120px;
+    height: 140px;
     color: rgb(26, 26, 26);
   }
 #heroGrid {
