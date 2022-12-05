@@ -198,32 +198,41 @@ p {
       grid-template-areas: "selfie contact social-media";
     }
 
+    #github, #linkedin, #twitter {
+      size:20px;
+      cursor:pointer;
+      size:10px;
+    }
+
     
 
-/* media queries 
+ media queries 
 @media only screen and (max-width:1000px) {
-    #navBar {display:wrap}
+  
     #navigation {display:none}
     #navigation {display: inline-block}
   }
   
   @media only screen and (max-width:600px) {
     
-    #header { display:flex}
-    #headline { position:static;
+    #header {display:flex;
+              justify-content:flex-start}
+    #headline {position:relative;
+                justify-content: flex-start;
                   margin: 20px;}
     #navigation {display:none}
-    #navigation {display: inline-block}
     
      #heroGrid {grid-template-areas: "featuredProduct"}  
+     p { display:wrap;
+          }
                                      
      #projectGrid {grid-template-rows:
-                    300px 300px;
-                    grid-template-columns: 1fr 1fr;
+                    250px 250px 250px 250px;
+                    grid-template-columns: 1fr;
                     grid-template-areas: 
                     'project2'
                     'project3'
                     'project4'
                     'project5'} 
-    
-    }*/
+
+    } 
