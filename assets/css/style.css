@@ -43,16 +43,19 @@ body {
   }
 
 #navigation {
-    position:top right;
-    top: 10%;
     display: flex;
     width: 50%;
-    align-items: center;
     justify-content: space-evenly;
     gap:20px;
     color:grey
   }
-
+  #navigation h3 {
+    cursor: pointer;
+    text-decoration: none;
+  }
+p .highlight {
+  color:grey
+}
 p {
     color:white;
     font-size: 25px;
@@ -186,8 +189,18 @@ p {
     footer {
         background-color:white
     }
+    footer .footer-container {
+      margin: 0px;
+      display: grid;
+      grid-area:stretch;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas: "selfie contact social-media";
+    }
 
-/* media queries */
+    
+
+/* media queries 
 @media only screen and (max-width:1000px) {
     #navBar {display:wrap}
     #navigation {display:none}
@@ -213,8 +226,4 @@ p {
                     'project4'
                     'project5'} 
     
-    }
-
-
-
-
+    }*/
