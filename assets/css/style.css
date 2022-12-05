@@ -15,7 +15,21 @@ body {
     flex-direction: row;
     color:grey;
     margin: 0px 5%;
-    gap:10px auto;
+    gap: 10px auto;
+    width: 100%;
+    
+  }
+  #navigation {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 20px;
+    color: grey
+  }
+  #navigation h3 {
+    cursor: pointer;
+    text-decoration: none;   
+    justify-content: flex-end;
   }
 #logo {
     min-width: 150px;
@@ -42,17 +56,7 @@ body {
     top:-10%;
   }
 
-#navigation {
-    display: flex;
-    width: 50%;
-    justify-content: space-evenly;
-    gap:20px;
-    color:grey
-  }
-  #navigation h3 {
-    cursor: pointer;
-    text-decoration: none;
-  }
+
 p .highlight {
   color:grey
 }
@@ -97,7 +101,7 @@ p {
         margin: 0px;
         display: grid;
         grid-area:stretch;
-        background-color: rgba(0, 0, 0, 0.838);
+        /* background-color: rgba(0, 0, 0, 0.838); */
         grid-template-rows: 500px 500px;
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
@@ -109,7 +113,7 @@ p {
         grid-area: project2;
         background-image: url("../images/Restaurant-website.jpg");
         background-size: cover;
-        opacity:0.5;}
+        opacity: 1;}
       
       #project3 {
         grid-area: project3;
@@ -162,16 +166,32 @@ p {
           
           .heading {
            padding: 15px;
-           grid-area:center;
+           grid-area: center;
            position: relative;
            bottom: 150px;
             color: White;
             font-size: 30px;
             border-bottom: 5px solid rgb(29, 29, 29) ;
+            background-color: #000;
+            width: 100%;
           }
-          .heading:hover {
-            opacity:1px
+          #project2:hover .heading {
+            display: none;
           }
+        #project3:hover .heading {
+            display: none;    
+        }
+        #project4:hover .heading {
+            opacity:1.0}
+        #project5:hover .heading {
+            opacity:1.0}
+          .heading:hover .heading {
+            opacity:1px;
+          }
+
+        #testProject:hover .heading {
+          display: none;
+        }
 
     /* Profile and information */
     .selfie {
@@ -197,7 +217,10 @@ p {
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-areas: "selfie contact social-media";
     }
-
+    #github {
+      
+     
+    }
     #github, #linkedin, #twitter {
       size:20px;
       cursor:pointer;
@@ -206,7 +229,6 @@ p {
 
     
 
- media queries 
 @media only screen and (max-width:1000px) {
   
     #navigation {display:none}
@@ -224,6 +246,14 @@ p {
     
      #heroGrid {grid-template-areas: "featuredProduct"}  
      p { display:wrap;
+          }
+
+          #headline1 {
+            height: 230px;
+          }
+          #featuredProduct {
+            min-height: auto;
+            height: 50vh;
           }
                                      
      #projectGrid {grid-template-rows:
