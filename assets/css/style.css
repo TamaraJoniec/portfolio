@@ -74,9 +74,8 @@ p {
     position:relative;
     justify-content: center;
     align-items:center;
-    left:30px;
-    margin: center;
-    gap:10px;
+    left:5%;
+    margin: 5%;
 }
 #headlineBox {
     background-color: rgba(0, 0, 0, 0.539);
@@ -135,7 +134,7 @@ p {
       #project4 {
         grid-area: project4;
         background-image: url("../images/placeholder1.png");
-        background-size: contain;
+        background-size: cover;
         opacity:0.5;
       }
       #project5 {
@@ -191,7 +190,7 @@ p {
       float: left;
           text-align: left;
           color:gray;
-          font-size: 20px; 
+          font-size: 100%; 
         display: flex;
         flex: 1 0 auto;
         align-items:top;
@@ -199,7 +198,7 @@ p {
         margin-left:10px;
         padding-top: 50px;
         padding-left:10px;
-        width:700px;
+        width:400px;
     }
     
     #icons {
@@ -229,6 +228,41 @@ p {
       width: 100%;
       align-items: flex-end;      
     }
+    #description {
+      float: left;
+          text-align: right;
+          color:gray;
+        display: flex;
+        flex: 1 1 auto;
+        align-items:top;
+        margin-top: -30%;
+        margin-left:15%;
+        padding-top: 10%;
+        padding-left:10%;
+        padding-right:10%;
+        width:100%;
+        content:wrap;
+        
+    }
+    
+    #icons {
+      display:flex;
+      position:absolute;
+      bottom:30px;
+      align-items:flex-end;
+      width: 100%;
+      margin:-10px;
+      justify-content: flex-end;
+      gap: 20px;
+      color: grey;
+      z-index: 300;
+    }
+
+    #github, #linkedin, #twitter {
+      display:row;
+      size:20px;
+      cursor:pointer;
+      size:10px;
   }
   
 /* tablet phone screen */
@@ -313,16 +347,16 @@ color:grey;
   footer {
         background-color:white;
         position: relative;
-        overflow: hidden;
         height:100%
       }
-      
-      .wrap {
-        margin: 0 auto;
-        position: relative;
-        overflow: hidden;
-      }
-      
+      #footerGrid {grid-template-rows:
+        10% 70% 20%;
+        grid-template-columns: 40% 60%;
+        grid-template-areas: 
+        "footerTitle"
+        "selfie description"
+        "getintouch  icons"
+      } 
       .left {
           text-align: left;
           float: left;
@@ -330,18 +364,15 @@ color:grey;
       }
       
     #description {
-      float: left;
-          text-align: left;
+          display:grid;
+          grid-area:"description;"
           color:gray;
-          font-size: 20px; 
-        display: flex;
-        flex: 1 0 auto;
-        align-items:top;
-        margin-top: 50px;
-        margin-left:10px;
-        padding-top: 50px;
-        padding-left:10px;
-        width:700px;
+          position:relative;
+          justify-content: center;
+          align-items:center;
+          left:5%;
+          margin: 5%;
+      
     }
     
     #icons {
@@ -445,14 +476,57 @@ color:grey;
     position: relative;
    
 }
-      }
-       #websiteGrid {grid-template-rows:
-                      250px 250px 250px 250px;
-                      grid-template-columns: 1fr;
-                      grid-template-areas: 
-                      'project2'
-                      'project3'
-                      'project4'
-                      'project5'} 
+  /* footer */
+  footer {
+    background-color:white;
+    position: relative;
+    height:100%
+  }
+  #footerGrid {grid-template-rows:
+    10% 20% 1fr% 10%;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "footerTitle"
+    "selfie" 
+    "description" 
+
+    "getintouch  icons";
+  } 
+  .left {
+      text-align: left;
+      float: left;
+      padding: 20px;
+  }
+  
+#description {
+ 
+      color:gray;
+      position:relative;
+      justify-content: center;
+      align-items:center;
+      left:5%;
+      margin: 5%;
+  
+}
+
+#icons {
+  display:flex;
+  position:absolute;
+  bottom:30px;
+  align-items:flex-end;
+  width: 100%;
+  margin:-10px;
+  justify-content: flex-end;
+  gap: 20px;
+  color: grey;
+  z-index: 300;
+}
+
+#github, #linkedin, #twitter {
+  display:row;
+  size:20px;
+  cursor:pointer;
+  size:10px;
+}
 
 
