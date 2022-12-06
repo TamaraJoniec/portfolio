@@ -68,7 +68,7 @@ body {
     margin: 30px;
     top: 10px;
 }
-p {
+ #intro {
     color:white;
     font-size: 25px;
     position:relative;
@@ -174,13 +174,13 @@ p {
         height:400px
       }
       
-      .wrap {
+    .wrap {
         margin: 0 auto;
         position: relative;
         overflow: hidden;
       }
       
-      .left {
+    .left {
           text-align: left;
           float: left;
           padding: 20px;
@@ -188,18 +188,15 @@ p {
       
     #description {
       float: left;
-          text-align: left;
-          color:gray;
-          font-size: 100%; 
-        display: flex;
-        flex: 1 0 auto;
-        align-items:top;
-        margin-top: 50px;
-        margin-left:10px;
-        padding-top: 50px;
-        padding-left:10px;
-        width:400px;
-    }
+      text-align: left;
+      color: gray;
+      font-size: 120%;
+      display: flex;
+      margin-top: 10%;
+      flex: 1 0 auto;
+      width: 400px;
+  }
+    
     
     #icons {
       display:flex;
@@ -223,26 +220,13 @@ p {
 /* media queries */
 @media only screen and (max-width:1000px) {
  
-    #navigation {    
+#navigation {    
       display: flex;
       width: 100%;
       align-items: flex-end;      
     }
-    #description {
-      float: left;
-          text-align: right;
-          color:gray;
-        display: flex;
-        flex: 1 1 auto;
-        align-items:top;
-        margin-top: -30%;
-        margin-left:15%;
-        padding-top: 10%;
-        padding-left:10%;
-        padding-right:10%;
-        width:100%;
-        content:wrap;
-        
+    p #description {
+        width:100%; 
     }
     
     #icons {
@@ -267,7 +251,7 @@ p {
   
 /* tablet phone screen */
 @media only screen and (max-width:800px) {
-/* logo */
+    /* logo */
 #logo {
   size: 10vh;
   width:100%;
@@ -295,7 +279,7 @@ position:relative;
       margin: 20px;
       size-adjust: 10vh;}
 
-/* navigation */
+     /* navigation */
 
 #navigation {
   display: flex;
@@ -308,7 +292,6 @@ position:relative;
 .highlight:hover {
   color:orange
 }
-}
 #about, 
 #resume, 
 #projects, 
@@ -317,15 +300,12 @@ position:relative;
 text-decoration: none;
 color:grey;
 }
-
- /* hero banner */   
+    /* hero banner */   
      #heroGrid {
       grid-template-rows:50vh;
       grid-template-columns: 1fr;
       grid-template-areas: 
       "featuredProduct"} 
-
-     p { display:wrap;}
 
           #headline1 {
             min-height: 230px;
@@ -343,7 +323,7 @@ color:grey;
                     'project3'
                     'project4'
                     'project5'} 
-/* footer */
+    /* footer */
   footer {
         background-color:white;
         position: relative;
@@ -362,19 +342,15 @@ color:grey;
           float: left;
           padding: 20px;
       }
-      
-    #description {
+      p #description {
           display:grid;
-          grid-area:"description;"
+          grid-area:"description";
           color:gray;
-          position:relative;
-          justify-content: center;
-          align-items:center;
+          justify-content: flex-end;
+          align-items: center;
           left:5%;
           margin: 5%;
-      
     }
-    
     #icons {
       display:flex;
       position:absolute;
@@ -387,7 +363,6 @@ color:grey;
       color: grey;
       z-index: 300;
     }
-
     #github, #linkedin, #twitter {
       display:row;
       size:20px;
@@ -448,19 +423,22 @@ color:grey;
   color:grey;
   
   }
-  
    /* hero banner */   
        #heroGrid {
         grid-template-rows:50vh;
         grid-template-columns: 1fr;
         grid-template-areas: 
         "featuredProduct"} 
-  
-       p { display:wrap;}
-  
+  #intro {
+    width:100%;
+    align-items: flex-start;
+  }
             #headline1 {
               min-height: 230px;
             }
+      #headlineBox {
+        height:20%;
+      }
       #featuredProduct {
               min-height: auto;
              min-width: fit-content;
@@ -488,8 +466,7 @@ color:grey;
     grid-template-areas: 
     "footerTitle"
     "selfie" 
-    "description" 
-
+    "description"
     "getintouch  icons";
   } 
   .left {
@@ -497,7 +474,6 @@ color:grey;
       float: left;
       padding: 20px;
   }
-  
 #description {
  
       color:gray;
@@ -506,12 +482,10 @@ color:grey;
       align-items:center;
       left:5%;
       margin: 5%;
-  
 }
-
 #icons {
   display:flex;
-  position:absolute;
+  position:relative;
   bottom:30px;
   align-items:flex-end;
   width: 100%;
@@ -521,12 +495,9 @@ color:grey;
   color: grey;
   z-index: 300;
 }
-
 #github, #linkedin, #twitter {
   display:row;
   size:20px;
   cursor:pointer;
   size:10px;
 }
-
-
