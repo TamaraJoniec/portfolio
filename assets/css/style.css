@@ -18,7 +18,6 @@ body {
   #navigation {
     display: flex;
     width: 100%;
-    
     justify-content: flex-end;
     position:absolute;
     top: 1%;
@@ -46,7 +45,7 @@ body {
     margin-bottom:0%;
     width: 100%;
     font-weight:lighter;
-    font-size: 50px;
+    font-size: 300%;
     color:orange;
     letter-spacing: 0.5px;
 }
@@ -111,7 +110,7 @@ p {
     letter-spacing: 5px;
     text-align: flex-start;
     position:relative;
-    left:80px;
+    left:5%;
 }
 #websiteGrid {
         margin: 0px;
@@ -252,9 +251,8 @@ position:relative;
 .subHeading {
   font-weight: lighter;
   width:100%;
-  margin-left:3%;
-  position: absolute;
-  top: 8%;
+  margin-left:4%;
+  top: 15%;
 }
   #header {display:flex;
               justify-content:flex-start
@@ -273,6 +271,9 @@ position:relative;
     right:0%;
     color: grey;
 }
+.highlight:hover {
+  color:orange
+}
 }
 #about, 
 #resume, 
@@ -281,7 +282,6 @@ position:relative;
 #contact { 
 text-decoration: none;
 color:grey;
-
 }
 
  /* hero banner */   
@@ -309,6 +309,60 @@ color:grey;
                     'project3'
                     'project4'
                     'project5'} 
+/* footer */
+  footer {
+        background-color:white;
+        position: relative;
+        overflow: hidden;
+        height:100%
+      }
+      
+      .wrap {
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .left {
+          text-align: left;
+          float: left;
+          padding: 20px;
+      }
+      
+    #description {
+      float: left;
+          text-align: left;
+          color:gray;
+          font-size: 20px; 
+        display: flex;
+        flex: 1 0 auto;
+        align-items:top;
+        margin-top: 50px;
+        margin-left:10px;
+        padding-top: 50px;
+        padding-left:10px;
+        width:700px;
+    }
+    
+    #icons {
+      display:flex;
+      position:absolute;
+      bottom:30px;
+      align-items:flex-end;
+      width: 100%;
+      margin:-10px;
+      justify-content: flex-end;
+      gap: 20px;
+      color: grey;
+      z-index: 300;
+    }
+
+    #github, #linkedin, #twitter {
+      display:row;
+      size:20px;
+      cursor:pointer;
+      size:10px;
+    }
 /* media query for mobile phones */
 
 @media only screen and (max-width:600px) {
@@ -318,19 +372,19 @@ color:grey;
     width:100%;
   }
   .name {
-  position:absolute;
+  position:relative;
     margin: 10px;
     width: 100%;
+    font-size:200%;
     font-weight:lighter;
     color:orange;
     letter-spacing: 0.5px;
   }
   .subHeading {
     font-weight: lighter;
-    margin: 10%;
     width:100%;
-    font-size: 100%;
-    position: absolute;
+    font-size:150%;
+    position: relative;
     top: 1%;
   }
     #header {display:flex;
@@ -346,12 +400,12 @@ color:grey;
     display: flex;
     width: 100%;
     justify-content: center;
-    position: relative;
-    right: 5%;
-    left: 5%;
-    top: 20%;
-    gap: 4%;
+    position:relative;
+    right:0%;
     color: grey;
+  }
+  .highlight:hover {
+    color:orange
   }
   }
   #about, 
@@ -381,6 +435,17 @@ color:grey;
              min-width: fit-content;
             }     
       /*portfolio container  */
+
+      #projectsTitle {
+        color: grey;
+    font-size: 50px;
+    font-weight: lighter;
+    letter-spacing: 5px;
+    text-align: flex-start;
+    position: relative;
+   
+}
+      }
        #websiteGrid {grid-template-rows:
                       250px 250px 250px 250px;
                       grid-template-columns: 1fr;
@@ -389,3 +454,5 @@ color:grey;
                       'project3'
                       'project4'
                       'project5'} 
+
+
