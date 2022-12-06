@@ -65,8 +65,8 @@ body {
   font-weight:lighter;
     letter-spacing: 5px;
     text-align: flex-start;
-    margin: 30px;
-    top: 10px;
+    margin: 2%;
+    top: 2%;
 }
  #intro {
     color:white;
@@ -80,7 +80,7 @@ body {
 #headlineBox {
     background-color: rgba(0, 0, 0, 0.539);
     padding: 50px;
-    height: 140px;
+    height: 35%;
     color: rgb(26, 26, 26);
   }
 #heroGrid {
@@ -144,7 +144,6 @@ body {
         background-position: center;
         opacity:0.3;
       }
-
     #project2:hover {
         opacity:1.0}
     #project3:hover {
@@ -165,7 +164,6 @@ body {
         display:flex;
         justify-content:flex-start;
     }
-
     /* footer */
     footer {
         background-color:white;
@@ -342,7 +340,7 @@ color:grey;
           float: left;
           padding: 20px;
       }
-      p #description {
+      #description {
           display:grid;
           grid-area:"description";
           color:gray;
