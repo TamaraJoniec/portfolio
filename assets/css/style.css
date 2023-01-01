@@ -118,7 +118,7 @@ body {
 
 /* Grid CSS */
 #project1 h2 {
-  color: rgb(85, 85, 85);
+  color: rgb(29, 29, 29);
   font-size: 200%;
   font-weight: lighter;
   letter-spacing: 5%;
@@ -126,23 +126,28 @@ body {
   margin: 2%;
   top: 2%;
 }
+
 #project1 p {
-  color: rgb(67, 66, 66);
+  color: rgb(39, 39, 39);
   font-size: 100%;
   position: relative;
   top: -20%;
   left: 5%;
   margin: 5%;
 }
-#project1 {
+
+#featureWebsite, #project1 {
   margin: 0px;
   display: grid;
   background-image: url("../images/02-portfolio-3.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.7;
+  opacity: 0.6;
+  display: grid;
+  height: 50vh;
 }
+
 .projectsTitle {
   color: grey;
   font-size: 50px;
@@ -224,13 +229,18 @@ a {
   opacity: 1.0
 }
 
+
+#project5:hover {
+  opacity: 1.0
+}
+
 /* Profile and information */
 #selfie {
   max-width: 200px;
   height: auto;
   margin: 1 1.5;
   padding: 0.5rem;
-  border: 3px  rgb(84, 10, 35);
+  border: 3px rgb(84, 10, 35);
   border-style: dashed;
   z-index: 100px;
   display: flex;
@@ -390,7 +400,7 @@ footer {
 
     /* hero banner */
     #heroGrid {
-      grid-template-rows: 50vh;
+      grid-template-rows: 100%;
       grid-template-columns: 1fr;
       grid-template-areas:
         "featuredProduct"
@@ -406,6 +416,16 @@ footer {
     }
 
     /*portfolio container  */
+    #projectsTitle {
+      position: relative;
+      margin: 10%;
+      margin-left: 5%;
+      top: 10%;
+      width: 100%;
+    }
+    #featureWebsite {
+      height:100%
+    }
     #websiteGrid {
       grid-template-rows:
         250px 250px 250px 250px;
@@ -417,6 +437,13 @@ footer {
         'project5'
     }
 
+#project1:hover,
+#project2:hover,
+#project3:hover,
+#project4:hover,
+#project5:hover {
+  opacity: 1.0
+}
     /* footer */
     footer {
       background-color: white;
