@@ -95,7 +95,7 @@ body {
     min-height: 500px;
     height: 70vh;
     width:100%;
-    background-image: url("../images/modern-colorful-landing-page-website-design-template-background-layered-paper-texture-style-vector_490655-6.webp");
+    background-image: url("../images/02-hero-bg.jpeg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -120,29 +120,51 @@ body {
         "project2 project3"
         "project4 project5";
       } 
+      .categoryGridArea {
+        background-position: center;
+        background-size: cover;
+        background-repeat:no-repeat;
+        margin:5px;
+        cursor: pointer;
+        display:grid;
+        align-content:end;
+        background-position: center;
+      }
+      
+      .heading {
+        background-color:rgb(0, 0, 0);
+        padding:15px;
+        height:25px;
+        color:white;
+        font-size:18px;
+        text-decoration: none;
+      }
+      a { text-decoration: none;}
+      
       #project2 { 
         grid-area: project2;
         background-image: url("../images/Furniture-store-website.jpg");
         background-size: cover;
-        opacity: 0.3;
+        opacity: 0.7;
       }
       #project3 {
         grid-area: project3;
         background-image: url("../images/Marketing-website.jpg");
         background-size: cover;
-        opacity:0.5;}
+        opacity: 0.7;
+       }
       #project4 {
         grid-area: project4;
         background-image: url("../images/placeholder1.png");
         background-size: cover;
-        opacity:0.5;
+        opacity: 0.7;
       }
       #project5 {
         grid-area: project5;
         background-image: url("../images/restaurant.png");
         background-size:cover;
         background-position: center;
-        opacity:0.3;
+        opacity: 0.7;
       }
     #project2:hover {
         opacity:1.0}
