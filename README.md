@@ -19,7 +19,7 @@ If your README is long, add a table of contents to make it easy for users to fin
 ## Installation
 
 Website URL:
-https://tamarajoniec.github.io/portfolio/
+https://tamarajoniec.github.io/Portfolio/
 
 ## Usage
 
