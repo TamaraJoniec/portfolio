@@ -73,7 +73,7 @@ body {
 /* hero banner */
 .mainTitle {
   color: white;
-  font-size: 50px;
+  font-size: 350%;
   font-weight: lighter;
   letter-spacing: 5px;
   text-align: flex-start;
@@ -83,7 +83,7 @@ body {
 
 #intro {
   color: white;
-  font-size: 25px;
+  font-size: 150%;
   position: relative;
   top: -20%;
   left: 5%;
@@ -101,7 +101,7 @@ body {
   margin: 0px;
   display: grid;
   min-height: 500px;
-  height: 70vh;
+  height: 50vh;
 }
 
 #featuredProduct {
@@ -117,15 +117,40 @@ body {
 }
 
 /* Grid CSS */
-
+#project1 h2 {
+  color: rgb(85, 85, 85);
+  font-size: 200%;
+  font-weight: lighter;
+  letter-spacing: 5%;
+  text-align: flex-start;
+  margin: 2%;
+  top: 2%;
+}
+#project1 p {
+  color: rgb(67, 66, 66);
+  font-size: 100%;
+  position: relative;
+  top: -20%;
+  left: 5%;
+  margin: 5%;
+}
+#project1 {
+  margin: 0px;
+  display: grid;
+  background-image: url("../images/02-portfolio-3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+}
 .projectsTitle {
   color: grey;
   font-size: 50px;
   font-weight: lighter;
   letter-spacing: 5px;
   text-align: flex-start;
-  position: relative;
-  left: 5%;
+  margin: 2%;
+  top: 2%;
 }
 
 #websiteGrid {
@@ -191,18 +216,10 @@ a {
   opacity: 0.7;
 }
 
-#project2:hover {
-  opacity: 1.0
-}
-
-#project3:hover {
-  opacity: 1.0
-}
-
-#project4:hover {
-  opacity: 1.0
-}
-
+#project1:hover,
+#project2:hover,
+#project3:hover,
+#project4:hover,
 #project5:hover {
   opacity: 1.0
 }
