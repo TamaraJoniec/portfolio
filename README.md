@@ -23,8 +23,8 @@ https://tamarajoniec.github.io/portfolio/
 
 ## Usage
 
-[alt="screenshot](assets/images/screencapture.jpg) 
-    
+![Screenshot of website.](assets/images/screencapture.jpg "The Portfolio webpage includes a navigation bar, a header image, and cards with text and images at the bottom of the page. There is an about me section and contact details.")    
+
 ## Credits
 
 N/A
