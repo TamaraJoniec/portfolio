@@ -1,523 +1,615 @@
 :root {
-    --mainfont: orange;
-    --greyfont: grey;
-  }
-body { 
-    align-items: center;
-     font-family:century gothic; Century gothic Bold; Century Gothic Bold Italic, Century Gothic Italic;
-     color:grey}
+  --mainfont: orange;
+  --greyfont: grey;
+}
+
+body {
+  align-items: center;
+  font-family: century gothic;
+  Century gothic Bold;
+  Century Gothic Bold Italic,
+  Century Gothic Italic;
+  color: grey
+}
 
 /* Header */
 #navBar {
-    display: flex;
-    flex-direction: row;
-    color:grey;
-    margin: 0px;
-    width: 100%;
-  }
-  #navigation {
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-    position:absolute;
-    top: 1%;
-    right:3%;
-    gap: 3%;
-    color: grey;
-  }
-#about, 
-#resume, 
-#projects, 
-#services, 
-#contact { 
-  text-decoration: none;
-  color:grey;
-}
-#logo {
-      width: 150px;
-    margin: 20px auto;
-    padding-right: 1rem; 
-    top:5%;
-}
-.name {
-    text-align: flex-start;
-    margin-top: 15%;
-    margin-bottom:0%;
-    width: 100%;
-    font-weight:lighter;
-    font-size: 300%;
-    color:orange;
-    letter-spacing: 0.5px;
-}
-.subHeading {
-    font-weight: lighter;
-    width: 100%;
-    position:relative;
-    top:-10%;
-  }
-.highlight:hover {
-  color:orange
-}
-/* hero banner */
-.mainTitle {
-  color:white;
-  font-size:50px ;
-  font-weight:lighter;
-    letter-spacing: 5px;
-    text-align: flex-start;
-    margin: 2%;
-    top: 2%;
-}
- #intro {
-    color:white;
-    font-size: 25px;
-    position:relative;
-    justify-content: center;
-    align-items:center;
-    left:5%;
-    margin: 5%;
-}
-#headlineBox {
-    background-color: rgba(0, 0, 0, 0.539);
-    padding: 50px;
-    height: 35%;
-    color: rgb(26, 26, 26);
-  }
-#heroGrid {
-    margin: 0px;
-    display: grid;
-    min-height: 500px;
-    height: 70vh;
-  }
-#featuredProduct {
-    margin: 0px;
-    display: grid;
-    min-height: 500px;
-    height: 70vh;
-    width:100%;
-    background-image: url("../images/02-hero-bg.jpeg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    }
-/* Grid CSS */
-
-.projectsTitle {
-  color:grey;
-  font-size:50px ;
-  font-weight:lighter;
-    letter-spacing: 5px;
-    text-align: flex-start;
-    position:relative;
-    left:5%;
-}
-#websiteGrid {
-        margin: 0px;
-        display: grid;
-        grid-template-rows: 500px 500px;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-        "project2 project3"
-        "project4 project5";
-      } 
-      .categoryGridArea {
-        background-position: center;
-        background-size: cover;
-        background-repeat:no-repeat;
-        margin:5px;
-        cursor: pointer;
-        display:grid;
-        align-content:end;
-        background-position: center;
-      }
-      
-      .heading {
-        background-color:rgb(0, 0, 0);
-        padding:15px;
-        height:25px;
-        color:white;
-        font-size:18px;
-        text-decoration: none;
-      }
-      a { text-decoration: none;}
-      
-      #project2 { 
-        grid-area: project2;
-        background-image: url("../images/Furniture-store-website.jpg");
-        background-size: cover;
-        opacity: 0.7;
-      }
-      #project3 {
-        grid-area: project3;
-        background-image: url("../images/Marketing-website.jpg");
-        background-size: cover;
-        opacity: 0.7;
-       }
-      #project4 {
-        grid-area: project4;
-        background-image: url("../images/placeholder1.png");
-        background-size: cover;
-        opacity: 0.7;
-      }
-      #project5 {
-        grid-area: project5;
-        background-image: url("../images/restaurant.png");
-        background-size:cover;
-        background-position: center;
-        opacity: 0.7;
-      }
-    #project2:hover {
-        opacity:1.0}
-    #project3:hover {
-        opacity:1.0}
-    #project4:hover {
-        opacity:1.0}
-    #project5:hover {
-        opacity:1.0}
-
-    /* Profile and information */
-    #selfie {
-        max-width: 200px; height:auto;
-        margin: 1  1.5;
-        padding: 0.5rem;
-        border: 3px orange;
-        border-style: dashed;
-        z-index:100px;
-        display:flex;
-        justify-content:flex-start;
-    }
-    /* footer */
-    footer {
-        background-color:white;
-        position: relative;
-        overflow: hidden;
-        height:400px
-      }
-      
-    .wrap {
-        margin: 0 auto;
-        position: relative;
-        overflow: hidden;
-      }
-      
-    .left {
-          text-align: left;
-          float: left;
-          padding: 20px;
-      }
-      
-    #description {
-      float: left;
-      text-align: left;
-      color: gray;
-      font-size: 120%;
-      display: flex;
-      margin-top: 10%;
-      flex: 1 0 auto;
-      width: 400px;
-  }
-    
-    
-    #icons {
-      display:flex;
-      position:absolute;
-      bottom:30px;
-      align-items:flex-end;
-      width: 100%;
-      margin:-10px;
-      justify-content: flex-end;
-      gap: 20px;
-      color: grey;
-      z-index: 300;
-    }
-
-    #github, #linkedin, #twitter {
-      display:row;
-      size:20px;
-      cursor:pointer;
-      size:10px;
-    }
-/* media queries */
-@media only screen and (max-width:1000px) {
- 
-#navigation {    
-      display: flex;
-      width: 100%;
-      align-items: flex-end;      
-    }
-    p #description {
-        width:100%; 
-    }
-    
-    #icons {
-      display:flex;
-      position:absolute;
-      bottom:30px;
-      align-items:flex-end;
-      width: 100%;
-      margin:-10px;
-      justify-content: flex-end;
-      gap: 20px;
-      color: grey;
-      z-index: 300;
-    }
-
-    #github, #linkedin, #twitter {
-      display:row;
-      size:20px;
-      cursor:pointer;
-      size:10px;
-  }
-  
-/* tablet phone screen */
-@media only screen and (max-width:800px) {
-    /* logo */
-#logo {
-  size: 10vh;
-  width:100%;
-}
-.name {
-position:relative;
-  margin: 10%;
-  margin-left:5%;
-  top:10%;
+  display: flex;
+  flex-direction: row;
+  color: grey;
+  margin: 0px;
   width: 100%;
-  font-weight:lighter;
-  color:orange;
-  letter-spacing: 0.5px;
 }
-.subHeading {
-  font-weight: lighter;
-  width:100%;
-  margin-left:4%;
-  top: 15%;
-}
-  #header {display:flex;
-              justify-content:flex-start
-            }
-  #headline {position:static;
-      margin: 20px;
-      size-adjust: 10vh;}
-
-     /* navigation */
 
 #navigation {
   display: flex;
-    width: 100%;
-    justify-content: center;
-    position:relative;
-    right:0%;
-    color: grey;
-}
-.highlight:hover {
-  color:orange
-}
-#about, 
-#resume, 
-#projects, 
-#services, 
-#contact { 
-text-decoration: none;
-color:grey;
-}
-    /* hero banner */   
-     #heroGrid {
-      grid-template-rows:50vh;
-      grid-template-columns: 1fr;
-      grid-template-areas: 
-      "featuredProduct"} 
-
-          #headline1 {
-            min-height: 230px;
-          }
-    #featuredProduct {
-            min-height: auto;
-           min-width: fit-content;
-          }     
-    /*portfolio container  */
-     #websiteGrid {grid-template-rows:
-                    250px 250px 250px 250px;
-                    grid-template-columns: 1fr;
-                    grid-template-areas: 
-                    'project2'
-                    'project3'
-                    'project4'
-                    'project5'} 
-    /* footer */
-  footer {
-        background-color:white;
-        position: relative;
-        height:100%
-      }
-      #footerGrid {grid-template-rows:
-        10% 70% 20%;
-        grid-template-columns: 40% 60%;
-        grid-template-areas: 
-        "footerTitle"
-        "selfie description"
-        "getintouch  icons"
-      } 
-      .left {
-          text-align: left;
-          float: left;
-          padding: 20px;
-      }
-      #description {
-          display:grid;
-          grid-area:"description";
-          color:gray;
-          justify-content: flex-end;
-          align-items: center;
-          left:5%;
-          margin: 5%;
-    }
-    #icons {
-      display:flex;
-      position:absolute;
-      bottom:30px;
-      align-items:flex-end;
-      width: 100%;
-      margin:-10px;
-      justify-content: flex-end;
-      gap: 20px;
-      color: grey;
-      z-index: 300;
-    }
-    #github, #linkedin, #twitter {
-      display:row;
-      size:20px;
-      cursor:pointer;
-      size:10px;
-    }
-/* media query for mobile phones */
-
-@media only screen and (max-width:600px) {
-  /* logo */
-  #logo {
-    margin:0;
-    width:100%;
-  }
-  .name {
-  position:relative;
-    margin: 10px;
-    width: 100%;
-    font-size:200%;
-    font-weight:lighter;
-    color:orange;
-    letter-spacing: 0.5px;
-  }
-  .subHeading {
-    font-weight: lighter;
-    width:100%;
-    font-size:150%;
-    position: relative;
-    top: 1%;
-  }
-    #header {display:flex;
-                justify-content:flex-start
-              }
-    #headline {position:static;
-        margin: 20px;
-        size-adjust: 10vh;}
-  
-  /* navigation */
-  
-  #navigation {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    position:relative;
-    right:0%;
-    color: grey;
-  }
-  .highlight:hover {
-    color:orange
-  }
-  }
-  #about, 
-  #resume, 
-  #projects, 
-  #services, 
-  #contact { 
-  text-decoration: none;
-  color:grey;
-  
-  }
-   /* hero banner */   
-       #heroGrid {
-        grid-template-rows:50vh;
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-        "featuredProduct"} 
-  #intro {
-    width:100%;
-    align-items: flex-start;
-  }
-            #headline1 {
-              min-height: 230px;
-            }
-      #headlineBox {
-        height:20%;
-      }
-      #featuredProduct {
-              min-height: auto;
-             min-width: fit-content;
-            }     
-      /*portfolio container  */
-
-      #projectsTitle {
-        color: grey;
-    font-size: 50px;
-    font-weight: lighter;
-    letter-spacing: 5px;
-    text-align: flex-start;
-    position: relative;
-   
-}
-  /* footer */
-  footer {
-    background-color:white;
-    position: relative;
-    height:100%
-  }
-  #footerGrid {grid-template-rows:
-    10% 20% 1fr% 10%;
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-    "footerTitle"
-    "selfie" 
-    "description"
-    "getintouch  icons";
-  } 
-  .left {
-      text-align: left;
-      float: left;
-      padding: 20px;
-  }
-#description {
- 
-      color:gray;
-      position:relative;
-      justify-content: center;
-      align-items:center;
-      left:5%;
-      margin: 5%;
-}
-#icons {
-  display:flex;
-  position:relative;
-  bottom:30px;
-  align-items:flex-end;
   width: 100%;
-  margin:-10px;
+  justify-content: flex-end;
+  position: absolute;
+  top: 1%;
+  right: 3%;
+  gap: 3%;
+  color: grey;
+}
+
+#about,
+#resume,
+#projects,
+#services,
+#contact {
+  text-decoration: none;
+  color: grey;
+}
+
+#logo {
+  width: 150px;
+  margin: 20px auto;
+  padding-right: 1rem;
+  top: 5%;
+}
+
+.name {
+  text-align: flex-start;
+  margin-top: 15%;
+  margin-bottom: 0%;
+  width: 100%;
+  font-weight: lighter;
+  font-size: 300%;
+  color: rgb(84, 10, 35);
+  letter-spacing: 0.5px;
+}
+
+.subHeading {
+  font-weight: lighter;
+  width: 100%;
+  position: relative;
+  top: -10%;
+}
+
+.highlight:hover {
+  color: rgb(85, 7, 59)
+}
+
+/* hero banner */
+.mainTitle {
+  color: white;
+  font-size: 50px;
+  font-weight: lighter;
+  letter-spacing: 5px;
+  text-align: flex-start;
+  margin: 2%;
+  top: 2%;
+}
+
+#intro {
+  color: white;
+  font-size: 25px;
+  position: relative;
+  top: -20%;
+  left: 5%;
+  margin: 5%;
+}
+
+#headlineBox {
+  background-color: rgba(0, 0, 0, 0.539);
+  padding: 50px;
+  height: 25%;
+  color: rgb(26, 26, 26);
+}
+
+#heroGrid {
+  margin: 0px;
+  display: grid;
+  min-height: 500px;
+  height: 70vh;
+}
+
+#featuredProduct {
+  margin: 0px;
+  display: grid;
+  min-height: 500px;
+  height: 70vh;
+  width: 100%;
+  background-image: url("../images/02-portfolio-1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Grid CSS */
+
+.projectsTitle {
+  color: grey;
+  font-size: 50px;
+  font-weight: lighter;
+  letter-spacing: 5px;
+  text-align: flex-start;
+  position: relative;
+  left: 5%;
+}
+
+#websiteGrid {
+  margin: 0px;
+  display: grid;
+  grid-template-rows: 500px 500px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "project2 project3"
+    "project4 project5";
+}
+
+.categoryGridArea {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 5px;
+  cursor: pointer;
+  display: grid;
+  align-content: end;
+  background-position: center;
+}
+
+.heading {
+  background-color: rgb(0, 0, 0);
+  padding: 15px;
+  height: 25px;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+#project2 {
+  grid-area: project2;
+  background-image: url("../images/Furniture-store-website.jpg");
+  background-size: cover;
+  opacity: 0.7;
+}
+
+#project3 {
+  grid-area: project3;
+  background-image: url("../images/Marketing-website.jpg");
+  background-size: cover;
+  opacity: 0.7;
+}
+
+#project4 {
+  grid-area: project4;
+  background-image: url("../images/02-portfolio-2.jpg");
+  background-size: cover;
+  opacity: 0.7;
+}
+
+#project5 {
+  grid-area: project5;
+  background-image: url("../images/02-portfolio-4.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+}
+
+#project2:hover {
+  opacity: 1.0
+}
+
+#project3:hover {
+  opacity: 1.0
+}
+
+#project4:hover {
+  opacity: 1.0
+}
+
+#project5:hover {
+  opacity: 1.0
+}
+
+/* Profile and information */
+#selfie {
+  max-width: 200px;
+  height: auto;
+  margin: 1 1.5;
+  padding: 0.5rem;
+  border: 3px  rgb(84, 10, 35);
+  border-style: dashed;
+  z-index: 100px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* footer */
+footer {
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  height: 400px
+}
+
+.wrap {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.left {
+  text-align: left;
+  float: left;
+  padding: 20px;
+}
+
+#description {
+  float: left;
+  text-align: left;
+  color: gray;
+  font-size: 120%;
+  display: flex;
+  margin-top: 10%;
+  flex: 1 0 auto;
+  width: 50%;
+}
+
+
+#icons {
+  display: flex;
+  position: absolute;
+  bottom: 30px;
+  align-items: flex-end;
+  width: 100%;
+  margin: -10px;
   justify-content: flex-end;
   gap: 20px;
   color: grey;
   z-index: 300;
 }
-#github, #linkedin, #twitter {
-  display:row;
-  size:20px;
-  cursor:pointer;
-  size:10px;
+
+#github,
+#linkedin,
+#twitter {
+  display: row;
+  size: 20px;
+  cursor: pointer;
+  size: 10px;
 }
+
+/* media queries */
+@media only screen and (max-width:1000px) {
+
+  #navigation {
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+  }
+
+  p #description {
+    width: 100%;
+  }
+
+  #icons {
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+    align-items: flex-end;
+    width: 100%;
+    margin: -10px;
+    justify-content: flex-end;
+    gap: 20px;
+    color: grey;
+    z-index: 300;
+  }
+
+  #github,
+  #linkedin,
+  #twitter {
+    display: row;
+    size: 20px;
+    cursor: pointer;
+    size: 10px;
+  }
+
+  /* tablet phone screen */
+  @media only screen and (max-width:800px) {
+
+    /* logo */
+    #logo {
+      size: 10vh;
+      width: 100%;
+    }
+
+    .name {
+      position: relative;
+      margin: 10%;
+      margin-left: 5%;
+      top: 10%;
+      width: 100%;
+      font-weight: lighter;
+      color: orange;
+      letter-spacing: 0.5px;
+    }
+
+    .subHeading {
+      font-weight: lighter;
+      width: 100%;
+      margin-left: 4%;
+      top: 15%;
+    }
+
+    #header {
+      display: flex;
+      justify-content: flex-start
+    }
+
+    #headline {
+      position: static;
+      margin: 20px;
+      size-adjust: 10vh;
+    }
+
+    /* navigation */
+
+    #navigation {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      position: relative;
+      right: 0%;
+      color: grey;
+    }
+
+    .highlight:hover {
+      color: orange
+    }
+
+    #about,
+    #resume,
+    #projects,
+    #services,
+    #contact {
+      text-decoration: none;
+      color: grey;
+    }
+
+    /* hero banner */
+    #heroGrid {
+      grid-template-rows: 50vh;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "featuredProduct"
+    }
+
+    #headline1 {
+      min-height: 230px;
+    }
+
+    #featuredProduct {
+      min-height: auto;
+      min-width: fit-content;
+    }
+
+    /*portfolio container  */
+    #websiteGrid {
+      grid-template-rows:
+        250px 250px 250px 250px;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'project2'
+        'project3'
+        'project4'
+        'project5'
+    }
+
+    /* footer */
+    footer {
+      background-color: white;
+      position: relative;
+      height: 100%
+    }
+
+    #footerGrid {
+      grid-template-rows:
+        10% 70% 20%;
+      grid-template-columns: 40% 60%;
+      grid-template-areas:
+        "footerTitle"
+        "selfie description"
+        "getintouch  icons"
+    }
+
+    .left {
+      text-align: left;
+      float: left;
+      padding: 20px;
+    }
+
+    #description {
+      display: grid;
+      grid-area: "description";
+      color: gray;
+      justify-content: flex-end;
+      align-items: center;
+      left: 5%;
+      margin: 5%;
+    }
+
+    #icons {
+      display: flex;
+      position: absolute;
+      bottom: 30px;
+      align-items: flex-end;
+      width: 100%;
+      margin: -10px;
+      justify-content: flex-end;
+      gap: 20px;
+      color: grey;
+      z-index: 300;
+    }
+
+    #github,
+    #linkedin,
+    #twitter {
+      display: row;
+      size: 20px;
+      cursor: pointer;
+      size: 10px;
+    }
+
+    /* media query for mobile phones */
+
+    @media only screen and (max-width:600px) {
+
+      /* logo */
+      #logo {
+        margin: 0;
+        width: 100%;
+      }
+
+      .name {
+        position: relative;
+        margin: 10px;
+        width: 100%;
+        font-size: 200%;
+        font-weight: lighter;
+        color: orange;
+        letter-spacing: 0.5px;
+      }
+
+      .subHeading {
+        font-weight: lighter;
+        width: 100%;
+        font-size: 150%;
+        position: relative;
+        top: 1%;
+      }
+
+      #header {
+        display: flex;
+        justify-content: flex-start
+      }
+
+      #headline {
+        position: static;
+        margin: 20px;
+        size-adjust: 10vh;
+      }
+
+      /* navigation */
+
+      #navigation {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        position: relative;
+        right: 0%;
+        color: grey;
+      }
+
+      .highlight:hover {
+        color: orange
+      }
+    }
+
+    #about,
+    #resume,
+    #projects,
+    #services,
+    #contact {
+      text-decoration: none;
+      color: grey;
+
+    }
+
+    /* hero banner */
+    #heroGrid {
+      grid-template-rows: 50vh;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "featuredProduct"
+    }
+
+    #intro {
+      width: 100%;
+      align-items: flex-start;
+    }
+
+    #headline1 {
+      min-height: 230px;
+    }
+
+    #headlineBox {
+      height: 20%;
+    }
+
+    #featuredProduct {
+      min-height: auto;
+      min-width: fit-content;
+    }
+
+    /*portfolio container  */
+
+    #projectsTitle {
+      color: grey;
+      font-size: 50px;
+      font-weight: lighter;
+      letter-spacing: 5px;
+      text-align: flex-start;
+      position: relative;
+
+    }
+
+    /* footer */
+    footer {
+      background-color: white;
+      position: relative;
+      height: 100%
+    }
+
+    #footerGrid {
+      grid-template-rows:
+        10% 20% 1fr% 10%;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "footerTitle"
+        "selfie"
+        "description"
+        "getintouch  icons";
+    }
+
+    .left {
+      text-align: left;
+      float: left;
+      padding: 20px;
+    }
+
+    #description {
+
+      color: gray;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      left: 5%;
+      margin: 5%;
+    }
+
+    #icons {
+      display: flex;
+      position: relative;
+      bottom: 30px;
+      align-items: flex-end;
+      width: 100%;
+      margin: -10px;
+      justify-content: flex-end;
+      gap: 20px;
+      color: grey;
+      z-index: 300;
+    }
+
+    #github,
+    #linkedin,
+    #twitter {
+      display: row;
+      size: 20px;
+      cursor: pointer;
+      size: 10px;
+    }
