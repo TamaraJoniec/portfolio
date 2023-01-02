@@ -117,8 +117,17 @@ body {
 }
 
 /* Grid CSS */
+.heading1 {
+  background-color: rgba(0, 0, 0, 0.446);
+  padding: 15px;
+  height: 20%;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+
 #project1 h2 {
-  color: rgb(29, 29, 29);
+  color: orange;
   font-size: 200%;
   font-weight: lighter;
   letter-spacing: 5%;
@@ -136,14 +145,14 @@ body {
   margin: 5%;
 }
 
-#featureWebsite, #project1 {
+ #project1 {
   margin: 0px;
   display: grid;
   background-image: url("../images/02-portfolio-3.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.6;
+  opacity: 0.7;
   display: grid;
   height: 50vh;
 }
@@ -225,11 +234,6 @@ a {
 #project2:hover,
 #project3:hover,
 #project4:hover,
-#project5:hover {
-  opacity: 1.0
-}
-
-
 #project5:hover {
   opacity: 1.0
 }
