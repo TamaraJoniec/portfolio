@@ -1,0 +1,1259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work — Tamara Joniec</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <style>
+      /* ── Reset & Tokens ─────────────────────────────────────── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --ink: #000000;
+        --ink-60: rgba(0, 0, 0, 0.55);
+        --ink-30: rgba(0, 0, 0, 0.3);
+        --ink-20: rgba(0, 0, 0, 0.12);
+        --ink-08: rgba(0, 0, 0, 0.06);
+        --cream: #e7e7e7;
+        --warm-wt: #f2f2f2;
+        --dark: #111111;
+
+        --f-display: "Cormorant Garamond", Georgia, serif;
+        --f-body: "DM Sans", sans-serif;
+
+        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+
+        --pad-x: clamp(1.5rem, 5vw, 5rem);
+        --max-w: 1200px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        background: var(--warm-wt);
+        color: var(--ink);
+        font-family: var(--f-body);
+        font-weight: 300;
+        overflow-x: hidden;
+        cursor: none;
+      }
+
+      /* ── Noise overlay ─────────────────────────────────────── */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        pointer-events: none;
+        opacity: 0.025;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 160px 160px;
+      }
+
+      /* ── Custom Cursor ─────────────────────────────────────── */
+      #cursor-dot,
+      #cursor-ring {
+        position: fixed;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+      }
+      #cursor-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--ink);
+      }
+      #cursor-ring {
+        width: 36px;
+        height: 36px;
+        border: 1.5px solid var(--ink);
+        transition:
+          width 0.3s var(--ease-out),
+          height 0.3s var(--ease-out),
+          background 0.3s;
+      }
+      body.cursor-hover #cursor-ring {
+        width: 56px;
+        height: 56px;
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      /* ── Nav ───────────────────────────────────────────────── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 500;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem var(--pad-x);
+        transition:
+          background 0.4s,
+          box-shadow 0.4s;
+      }
+      nav.scrolled {
+        background: rgba(242, 242, 242, 0.92);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 1px 0 var(--ink-20);
+      }
+      .nav-logo {
+        font-family: var(--f-display);
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 0.8rem;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-60);
+        text-decoration: none;
+        position: relative;
+        transition: color 0.2s;
+      }
+      .nav-links a.active {
+        color: var(--ink);
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--ink);
+        transition: width 0.3s var(--ease-out);
+      }
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+      .nav-links a:hover::after,
+      .nav-links a.active::after {
+        width: 100%;
+      }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 600;
+      }
+      .nav-toggle span {
+        display: block;
+        width: 24px;
+        height: 1.5px;
+        background: var(--ink);
+        transition: 0.3s;
+      }
+
+      /* ── Page Header ───────────────────────────────────────── */
+      .page-header {
+        background: var(--ink);
+        padding: 10rem var(--pad-x) 4.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .page-header-bg {
+        position: absolute;
+        font-family: var(--f-body);
+        font-size: clamp(5rem, 18vw, 16rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        color: rgba(255, 255, 255, 0.04);
+        bottom: -1rem;
+        right: -1rem;
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+      }
+      .page-header-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+      .page-eyebrow {
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        opacity: 0;
+        animation: fadeUp 0.7s var(--ease-out) 0.1s forwards;
+      }
+      .page-eyebrow::before {
+        content: "";
+        width: 2rem;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.25);
+      }
+      .page-title {
+        font-family: var(--f-display);
+        font-size: clamp(3rem, 7vw, 6rem);
+        font-weight: 300;
+        line-height: 1.05;
+        color: #f2f2f2;
+        letter-spacing: -0.01em;
+        opacity: 0;
+        animation: fadeUp 0.8s var(--ease-out) 0.2s forwards;
+      }
+      .page-title em {
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.45);
+      }
+      .page-count {
+        margin-top: 1.5rem;
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.35);
+        letter-spacing: 0.06em;
+        opacity: 0;
+        animation: fadeUp 0.8s var(--ease-out) 0.35s forwards;
+      }
+      .page-count strong {
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 500;
+      }
+
+      /* ── Filter Bar ────────────────────────────────────────── */
+      .filter-bar-wrap {
+        position: sticky;
+        top: 0;
+        z-index: 400;
+        background: var(--warm-wt);
+        border-bottom: 1px solid var(--ink-20);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+      }
+      .filter-bar {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 var(--pad-x);
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .filter-bar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .filter-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1.1rem 1.6rem;
+        font-family: var(--f-body);
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-60);
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        cursor: none;
+        white-space: nowrap;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .filter-btn .count {
+        font-size: 0.65rem;
+        font-weight: 600;
+        background: var(--ink-20);
+        color: var(--ink-60);
+        padding: 0.15rem 0.45rem;
+        border-radius: 20px;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .filter-btn:hover {
+        color: var(--ink);
+      }
+      .filter-btn.active {
+        color: var(--ink);
+        border-bottom-color: var(--ink);
+      }
+      .filter-btn.active .count {
+        background: var(--ink);
+        color: #f2f2f2;
+      }
+
+      /* ── Grid Wrapper ──────────────────────────────────────── */
+      .grid-wrap {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 4rem var(--pad-x) 6rem;
+      }
+
+      /* ── Section Label ─────────────────────────────────────── */
+      .section-divider {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+        /* hidden by default – JS shows relevant ones */
+      }
+      .section-divider-title {
+        font-family: var(--f-display);
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+        color: var(--ink);
+      }
+      .section-divider-sub {
+        font-size: 0.72rem;
+        font-weight: 400;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-30);
+        white-space: nowrap;
+      }
+      .section-divider-line {
+        flex: 1;
+        height: 1px;
+        background: var(--ink-20);
+      }
+      .section-block {
+        margin-bottom: 5rem;
+      }
+
+      /* ── Project Grids ─────────────────────────────────────── */
+
+      /* Websites & Microsites — 16:10 landscape cards, 2-col */
+      .grid-landscape {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      /* Digital ads — square, 3-col */
+      .grid-square {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+
+      /* Print ads — landscape wide, 2-col */
+      .grid-print {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      /* ── Card Base ─────────────────────────────────────────── */
+      .project-card {
+        position: relative;
+        overflow: hidden;
+        background: var(--cream);
+        display: block;
+        transition: transform 0.5s var(--ease-out);
+      }
+      .project-card.hidden {
+        display: none;
+      }
+
+      /* landscape aspect */
+      .grid-landscape .project-card {
+        aspect-ratio: 16 / 10;
+      }
+      /* square aspect */
+      .grid-square .project-card {
+        aspect-ratio: 1 / 1;
+      }
+      /* print aspect */
+      .grid-print .project-card {
+        aspect-ratio: 3 / 2;
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+        transition:
+          transform 0.65s var(--ease-out),
+          filter 0.45s;
+        filter: grayscale(100%);
+      }
+      .project-card:hover img {
+        transform: scale(1.05);
+        filter: grayscale(0%);
+      }
+
+      /* Overlay */
+      .project-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1.75rem 1.75rem 1.5rem;
+        opacity: 0;
+        transition: opacity 0.35s var(--ease-out);
+      }
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+
+      .project-tag {
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 0.35rem;
+      }
+      .project-name {
+        font-family: var(--f-display);
+        font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+        font-weight: 300;
+        font-style: italic;
+        color: #f2f2f2;
+        line-height: 1.15;
+      }
+
+      /* External link arrow */
+      .project-arrow {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+        width: 42px;
+        height: 42px;
+        background: #f2f2f2;
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        text-decoration: none;
+        opacity: 0;
+        transform: scale(0.7) rotate(-45deg);
+        transition:
+          opacity 0.3s var(--ease-out),
+          transform 0.3s var(--ease-out);
+      }
+      .project-card:hover .project-arrow {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+
+      /* Expand icon for non-linked images */
+      .project-expand {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+        width: 42px;
+        height: 42px;
+        background: #f2f2f2;
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.95rem;
+        opacity: 0;
+        transform: scale(0.7);
+        transition:
+          opacity 0.3s var(--ease-out),
+          transform 0.3s var(--ease-out);
+        pointer-events: none;
+      }
+      .project-card:hover .project-expand {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* ── Lightbox ─────────────────────────────────────────── */
+      #lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        background: rgba(0, 0, 0, 0.92);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+      #lightbox.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      #lightbox img {
+        max-width: 90vw;
+        max-height: 88vh;
+        object-fit: contain;
+        transform: scale(0.92);
+        transition: transform 0.4s var(--ease-out);
+      }
+      #lightbox.open img {
+        transform: scale(1);
+      }
+      #lightbox-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        font-size: 1.8rem;
+        color: rgba(255, 255, 255, 0.6);
+        cursor: none;
+        background: none;
+        border: none;
+        line-height: 1;
+        transition:
+          color 0.2s,
+          transform 0.2s;
+      }
+      #lightbox-close:hover {
+        color: #fff;
+        transform: rotate(90deg);
+      }
+      #lightbox-caption {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.35);
+      }
+
+      /* ── Empty State (when filter shows 0) ────────────────── */
+      .empty-state {
+        display: none;
+        text-align: center;
+        padding: 6rem 2rem;
+        color: var(--ink-30);
+      }
+      .empty-state.visible {
+        display: block;
+      }
+      .empty-state p {
+        font-size: 1rem;
+      }
+
+      /* ── Footer ────────────────────────────────────────────── */
+      .footer-bar {
+        background: #111;
+        padding: 1.5rem var(--pad-x);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .footer-bar p {
+        font-size: 0.75rem;
+        color: rgba(242, 242, 242, 0.25);
+        letter-spacing: 0.04em;
+      }
+
+      /* ── Animations ────────────────────────────────────────── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.65s var(--ease-out),
+          transform 0.65s var(--ease-out);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-d1 {
+        transition-delay: 0.07s;
+      }
+      .reveal-d2 {
+        transition-delay: 0.14s;
+      }
+      .reveal-d3 {
+        transition-delay: 0.21s;
+      }
+
+      /* ── Mobile ────────────────────────────────────────────── */
+      @media (max-width: 860px) {
+        nav {
+          padding: 1.25rem 1.5rem;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-links {
+          position: fixed;
+          inset: 0;
+          background: var(--warm-wt);
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 3rem;
+          transform: translateX(100%);
+          transition: transform 0.4s var(--ease-out);
+          z-index: 550;
+        }
+        .nav-links.open {
+          transform: translateX(0);
+        }
+        .nav-links a {
+          font-size: 1.1rem;
+        }
+
+        .grid-landscape {
+          grid-template-columns: 1fr;
+        }
+        .grid-square {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .grid-print {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-bar {
+          flex-direction: column;
+          gap: 0.5rem;
+          text-align: center;
+        }
+      }
+      @media (max-width: 500px) {
+        .grid-square {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button id="lightbox-close" aria-label="Close">✕</button>
+      <img id="lightbox-img" src="" alt="" />
+      <p id="lightbox-caption"></p>
+    </div>
+
+    <!-- Nav -->
+    <nav id="main-nav">
+      <a href="index.html" class="nav-logo">Tamara Joniec</a>
+      <div class="nav-toggle" id="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="work.html" class="active">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="page-header-bg" aria-hidden="true">Work</div>
+      <div class="page-header-inner">
+        <p class="page-eyebrow">Portfolio</p>
+        <h1 class="page-title">Selected <em>Work</em></h1>
+        <p class="page-count"><strong id="visible-count">25</strong> projects across websites, microsites, digital &amp; print</p>
+      </div>
+    </header>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar-wrap">
+      <div class="filter-bar" role="tablist" aria-label="Filter projects by category">
+        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All <span class="count">25</span></button>
+        <button class="filter-btn" data-filter="websites" role="tab" aria-selected="false">Websites <span class="count">4</span></button>
+        <button class="filter-btn" data-filter="microsites" role="tab" aria-selected="false">Microsites <span class="count">8</span></button>
+        <button class="filter-btn" data-filter="digital" role="tab" aria-selected="false">Digital Ads <span class="count">9</span></button>
+        <button class="filter-btn" data-filter="print" role="tab" aria-selected="false">Print Ads <span class="count">4</span></button>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <main class="grid-wrap">
+      <div class="empty-state" id="empty-state"><p>No projects in this category yet.</p></div>
+
+      <!-- ── WEBSITES ─────────────────────────────────────────── -->
+      <div class="section-block" id="block-websites" data-category="websites">
+        <div class="section-divider reveal">
+          <h2 class="section-divider-title">Websites</h2>
+          <span class="section-divider-sub">at Numiko</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="grid-landscape">
+          <a
+            href="https://db-maternar.netlify.app/"
+            target="_blank"
+            rel="noopener"
+            class="project-card reveal"
+            data-category="websites"
+            data-name="Therapist Portfolio"
+            data-label="Web Development">
+            <img
+              src="https://i0.wp.com/github.com/TamaraJoniec/therapist/raw/main/screeshot.png?w=1080&ssl=1"
+              alt="Therapist portfolio website screenshot"
+              loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Web Development</p>
+              <p class="project-name">Therapist Portfolio</p>
+            </div>
+            <div class="project-arrow" aria-label="Visit site">↗</div>
+          </a>
+
+          <a
+            href="https://www.jrf.org.uk/"
+            target="_blank"
+            rel="noopener"
+            class="project-card reveal reveal-d1"
+            data-category="websites"
+            data-name="Joseph Rowntree Foundation"
+            data-label="Web Design & Development">
+            <img src="./images/JRF.webp" alt="JRF website screenshot" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Web Design &amp; Development</p>
+              <p class="project-name">Joseph Rowntree Foundation</p>
+            </div>
+            <div class="project-arrow" aria-label="Visit site">↗</div>
+          </a>
+
+          <a
+            href="https://www.edenproject.com/visit/book-tickets"
+            target="_blank"
+            rel="noopener"
+            class="project-card reveal reveal-d2"
+            data-category="websites"
+            data-name="Eden Project"
+            data-label="Web Design & Development">
+            <img src="./images/Eden-Project.webp" alt="Eden Project website screenshot" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Web Design &amp; Development</p>
+              <p class="project-name">Eden Project</p>
+            </div>
+            <div class="project-arrow" aria-label="Visit site">↗</div>
+          </a>
+
+          <a
+            href="https://www.chathamhouse.org/"
+            target="_blank"
+            rel="noopener"
+            class="project-card reveal reveal-d3"
+            data-category="websites"
+            data-name="Chatham House"
+            data-label="Web Design & Development">
+            <img src="./images/Chatham-House.webp" alt="Chatham House website screenshot" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Web Design &amp; Development</p>
+              <p class="project-name">Chatham House</p>
+            </div>
+            <div class="project-arrow" aria-label="Visit site">↗</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ── MICROSITES ────────────────────────────────────────── -->
+      <div class="section-block" id="block-microsites" data-category="microsites">
+        <div class="section-divider reveal">
+          <h2 class="section-divider-title">Microsites</h2>
+          <span class="section-divider-sub">Recruitment</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="grid-landscape">
+          <a
+            href="https://hsdrector.co.uk/"
+            target="_blank"
+            rel="noopener"
+            class="project-card reveal"
+            data-category="microsites"
+            data-name="HSD Rector"
+            data-label="Recruitment Microsite">
+            <img src="./images/rector.webp" alt="HSD Rector website" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Recruitment Microsite</p>
+              <p class="project-name">HSD Rector</p>
+            </div>
+            <div class="project-arrow" aria-label="Visit site">↗</div>
+          </a>
+
+          <a
+            href="https://join-herefordshire.co.uk/"
+            target="_blank"
+            rel="noopener"
+            class="project-card reveal reveal-d1"
+            data-category="microsites"
+            data-name="Join Herefordshire"
+            data-label="Recruitment Microsite">
+            <img src="./images/Herefordshire-1.webp" alt="Join Herefordshire website" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Recruitment Microsite</p>
+              <p class="project-name">Join Herefordshire</p>
+            </div>
+            <div class="project-arrow" aria-label="Visit site">↗</div>
+          </a>
+
+          <a
+            href="https://join-plymouthcommunityhomes.co.uk/"
+            target="_blank"
+            rel="noopener"
+            class="project-card reveal reveal-d2"
+            data-category="microsites"
+            data-name="Plymouth Community Homes"
+            data-label="Recruitment Microsite">
+            <img src="./images/PCH-Housing-website.webp" alt="Plymouth Community Homes website" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Recruitment Microsite</p>
+              <p class="project-name">Plymouth Community Homes</p>
+            </div>
+            <div class="project-arrow" aria-label="Visit site">↗</div>
+          </a>
+
+          <a
+            href="https://uhnm-appointments.co.uk/"
+            target="_blank"
+            rel="noopener"
+            class="project-card reveal reveal-d3"
+            data-category="microsites"
+            data-name="NHS UHNM Appointments"
+            data-label="Recruitment Microsite">
+            <img src="./images/NHS.webp" alt="NHS UHNM website" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Recruitment Microsite</p>
+              <p class="project-name">NHS UHNM Appointments</p>
+            </div>
+            <div class="project-arrow" aria-label="Visit site">↗</div>
+          </a>
+
+          <a
+            href="https://join-devon.co.uk/"
+            target="_blank"
+            rel="noopener"
+            class="project-card reveal"
+            data-category="microsites"
+            data-name="Join Devon"
+            data-label="Recruitment Microsite">
+            <img src="./images/Devon-1.webp" alt="Join Devon website" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Recruitment Microsite</p>
+              <p class="project-name">Join Devon</p>
+            </div>
+            <div class="project-arrow" aria-label="Visit site">↗</div>
+          </a>
+
+          <a
+            href="https://sirona-appointments.co.uk/"
+            target="_blank"
+            rel="noopener"
+            class="project-card reveal reveal-d1"
+            data-category="microsites"
+            data-name="Sirona Appointments"
+            data-label="Recruitment Microsite">
+            <img src="./images/Sirona.webp" alt="Sirona Appointments website" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Recruitment Microsite</p>
+              <p class="project-name">Sirona Appointments</p>
+            </div>
+            <div class="project-arrow" aria-label="Visit site">↗</div>
+          </a>
+
+          <a
+            href="https://join-richmondandwandsworth.com/"
+            target="_blank"
+            rel="noopener"
+            class="project-card reveal reveal-d2"
+            data-category="microsites"
+            data-name="Richmond &amp; Wandsworth Council"
+            data-label="Recruitment Microsite">
+            <img src="./images/council-site.webp" alt="Richmond & Wandsworth council website" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Recruitment Microsite</p>
+              <p class="project-name">Richmond &amp; Wandsworth</p>
+            </div>
+            <div class="project-arrow" aria-label="Visit site">↗</div>
+          </a>
+
+          <a
+            href="https://join-pahousing.co.uk/"
+            target="_blank"
+            rel="noopener"
+            class="project-card reveal reveal-d3"
+            data-category="microsites"
+            data-name="PA Housing"
+            data-label="Recruitment Microsite">
+            <img src="./images/Housing-website.webp" alt="PA Housing website" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Recruitment Microsite</p>
+              <p class="project-name">PA Housing</p>
+            </div>
+            <div class="project-arrow" aria-label="Visit site">↗</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ── DIGITAL ADS ───────────────────────────────────────── -->
+      <div class="section-block" id="block-digital" data-category="digital">
+        <div class="section-divider reveal">
+          <h2 class="section-divider-title">Digital Ads</h2>
+          <span class="section-divider-sub">LinkedIn &amp; Social</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="grid-square">
+          <div
+            class="project-card reveal"
+            data-category="digital"
+            data-name="Gambling Commission"
+            data-label="Digital Ad"
+            data-lightbox="./images/Gambling-Commission.webp">
+            <img src="./images/Gambling-Commission.webp" alt="Gambling Commission LinkedIn ad" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Digital Ad</p>
+              <p class="project-name">Gambling Commission</p>
+            </div>
+            <div class="project-expand" aria-hidden="true">⤢</div>
+          </div>
+
+          <div
+            class="project-card reveal reveal-d1"
+            data-category="digital"
+            data-name="Creative UK"
+            data-label="Digital Ad"
+            data-lightbox="./images/Creative-UK.webp">
+            <img src="./images/Creative-UK.webp" alt="Creative UK ad" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Digital Ad</p>
+              <p class="project-name">Creative UK</p>
+            </div>
+            <div class="project-expand" aria-hidden="true">⤢</div>
+          </div>
+
+          <div
+            class="project-card reveal reveal-d2"
+            data-category="digital"
+            data-name="Peterborough Council"
+            data-label="Digital Ad"
+            data-lightbox="./images/Peterborough-Council.webp">
+            <img src="./images/Peterborough-Council.webp" alt="Peterborough Council ad" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Digital Ad</p>
+              <p class="project-name">Peterborough Council</p>
+            </div>
+            <div class="project-expand" aria-hidden="true">⤢</div>
+          </div>
+
+          <div class="project-card reveal" data-category="digital" data-name="NOC" data-label="Digital Ad" data-lightbox="./images/NOC.webp">
+            <img src="./images/NOC.webp" alt="NOC ad" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Digital Ad</p>
+              <p class="project-name">NOC</p>
+            </div>
+            <div class="project-expand" aria-hidden="true">⤢</div>
+          </div>
+
+          <div
+            class="project-card reveal reveal-d1"
+            data-category="digital"
+            data-name="Solicitors Association"
+            data-label="Digital Ad"
+            data-lightbox="./images/Solicitors-Association.webp">
+            <img src="./images/Solicitors-Association.webp" alt="Solicitors Association ad" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Digital Ad</p>
+              <p class="project-name">Solicitors Association</p>
+            </div>
+            <div class="project-expand" aria-hidden="true">⤢</div>
+          </div>
+
+          <div
+            class="project-card reveal reveal-d2"
+            data-category="digital"
+            data-name="High School of Dundee"
+            data-label="Digital Ad"
+            data-lightbox="./images/High-School-of-Dundee.webp">
+            <img src="./images/High-School-of-Dundee.webp" alt="High School of Dundee ad" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Digital Ad</p>
+              <p class="project-name">High School of Dundee</p>
+            </div>
+            <div class="project-expand" aria-hidden="true">⤢</div>
+          </div>
+
+          <div
+            class="project-card reveal"
+            data-category="digital"
+            data-name="Architects Registration Board"
+            data-label="Digital Ad"
+            data-lightbox="./images/Architects-registration-board.webp">
+            <img src="./images/Architects-registration-board.webp" alt="Architects Registration Board ad" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Digital Ad</p>
+              <p class="project-name">Architects Registration Board</p>
+            </div>
+            <div class="project-expand" aria-hidden="true">⤢</div>
+          </div>
+
+          <div
+            class="project-card reveal reveal-d1"
+            data-category="digital"
+            data-name="Kirklees Council"
+            data-label="Digital Ad"
+            data-lightbox="./images/Kirklees-council.webp">
+            <img src="./images/Kirklees-council.webp" alt="Kirklees Council ad" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Digital Ad</p>
+              <p class="project-name">Kirklees Council</p>
+            </div>
+            <div class="project-expand" aria-hidden="true">⤢</div>
+          </div>
+
+          <div
+            class="project-card reveal reveal-d2"
+            data-category="digital"
+            data-name="General Medical Council"
+            data-label="Digital Ad"
+            data-lightbox="./images/General-Medical-Council-LI.webp">
+            <img src="./images/General-Medical-Council-LI.webp" alt="General Medical Council ad" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Digital Ad</p>
+              <p class="project-name">General Medical Council</p>
+            </div>
+            <div class="project-expand" aria-hidden="true">⤢</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PRINT ADS ─────────────────────────────────────────── -->
+      <div class="section-block" id="block-print" data-category="print">
+        <div class="section-divider reveal">
+          <h2 class="section-divider-title">Print Ads</h2>
+          <span class="section-divider-sub">Press &amp; Outdoor</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="grid-print">
+          <div class="project-card reveal" data-category="print" data-name="Bolton Council" data-label="Print Ad" data-lightbox="./images/Bolton-Council.webp">
+            <img src="./images/Bolton-Council.webp" alt="Bolton Council print ad" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Print Ad</p>
+              <p class="project-name">Bolton Council</p>
+            </div>
+            <div class="project-expand" aria-hidden="true">⤢</div>
+          </div>
+
+          <div
+            class="project-card reveal reveal-d1"
+            data-category="print"
+            data-name="LB Sutton"
+            data-label="Print Ad"
+            data-lightbox="./images/LB-Sutton-BRANDED-Half-page-MJ.webp">
+            <img src="./images/LB-Sutton-BRANDED-Half-page-MJ.webp" alt="LB Sutton print ad" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Print Ad</p>
+              <p class="project-name">LB Sutton</p>
+            </div>
+            <div class="project-expand" aria-hidden="true">⤢</div>
+          </div>
+
+          <div
+            class="project-card reveal reveal-d2"
+            data-category="print"
+            data-name="Basildon Council"
+            data-label="Print Ad"
+            data-lightbox="./images/Basildon-Half-page-MJ.webp">
+            <img src="./images/Basildon-Half-page-MJ.webp" alt="Basildon Council print ad" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Print Ad</p>
+              <p class="project-name">Basildon Council</p>
+            </div>
+            <div class="project-expand" aria-hidden="true">⤢</div>
+          </div>
+
+          <div
+            class="project-card reveal reveal-d3"
+            data-category="print"
+            data-name="Camden Council"
+            data-label="Print Ad"
+            data-lightbox="./images/Camden-Half-page-MJ.webp">
+            <img src="./images/Camden-Half-page-MJ.webp" alt="Camden Council print ad" loading="lazy" />
+            <div class="project-overlay">
+              <p class="project-tag">Print Ad</p>
+              <p class="project-name">Camden Council</p>
+            </div>
+            <div class="project-expand" aria-hidden="true">⤢</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-bar">
+      <p>© 2025 Tamara Joniec — Hand-coded with HTML, CSS &amp; JS</p>
+      <p>Leeds, England</p>
+    </footer>
+
+    <script>
+      // ── Custom Cursor ──────────────────────────────────────────
+      const dot = document.getElementById("cursor-dot");
+      const ring = document.getElementById("cursor-ring");
+      let mx = 0,
+        my = 0,
+        rx = 0,
+        ry = 0;
+      document.addEventListener("mousemove", (e) => {
+        mx = e.clientX;
+        my = e.clientY;
+      });
+      (function tick() {
+        rx += (mx - rx) * 0.14;
+        ry += (my - ry) * 0.14;
+        dot.style.left = mx + "px";
+        dot.style.top = my + "px";
+        ring.style.left = rx + "px";
+        ring.style.top = ry + "px";
+        requestAnimationFrame(tick);
+      })();
+      document.querySelectorAll("a, button, .project-card").forEach((el) => {
+        el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
+        el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover"));
+      });
+
+      // ── Nav ───────────────────────────────────────────────────
+      const nav = document.getElementById("main-nav");
+      window.addEventListener("scroll", () => nav.classList.toggle("scrolled", window.scrollY > 60));
+      const toggle = document.getElementById("nav-toggle");
+      const navLinks = document.getElementById("nav-links");
+      toggle.addEventListener("click", () => navLinks.classList.toggle("open"));
+      navLinks.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => navLinks.classList.remove("open")));
+
+      // ── Scroll Reveal ─────────────────────────────────────────
+      const revealObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              revealObs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.08 },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => revealObs.observe(el));
+
+      // ── Filter Logic ──────────────────────────────────────────
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const sectionBlocks = document.querySelectorAll(".section-block");
+      const emptyState = document.getElementById("empty-state");
+      const visibleCountEl = document.getElementById("visible-count");
+
+      function applyFilter(filter) {
+        let count = 0;
+        let anyVisible = false;
+
+        sectionBlocks.forEach((block) => {
+          const blockCat = block.dataset.category;
+          const show = filter === "all" || blockCat === filter;
+          block.style.display = show ? "" : "none";
+          if (show) {
+            anyVisible = true;
+            count += block.querySelectorAll(".project-card").length;
+          }
+        });
+
+        emptyState.classList.toggle("visible", !anyVisible);
+        visibleCountEl.textContent = count;
+      }
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => {
+            b.classList.remove("active");
+            b.setAttribute("aria-selected", "false");
+          });
+          btn.classList.add("active");
+          btn.setAttribute("aria-selected", "true");
+          applyFilter(btn.dataset.filter);
+
+          // Re-run reveal for newly visible cards
+          setTimeout(() => {
+            document.querySelectorAll(".reveal:not(.visible)").forEach((el) => revealObs.observe(el));
+          }, 50);
+        });
+      });
+
+      // ── Lightbox ──────────────────────────────────────────────
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxCap = document.getElementById("lightbox-caption");
+      const lightboxClose = document.getElementById("lightbox-close");
+
+      document.querySelectorAll(".project-card[data-lightbox]").forEach((card) => {
+        card.style.cursor = "none";
+        card.addEventListener("click", () => {
+          lightboxImg.src = card.dataset.lightbox;
+          lightboxImg.alt = card.dataset.name;
+          lightboxCap.textContent = card.dataset.name + " — " + card.dataset.label;
+          lightbox.classList.add("open");
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        document.body.style.overflow = "";
+        setTimeout(() => {
+          lightboxImg.src = "";
+        }, 300);
+      }
+
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+      });
+    </script>
+  </body>
+</html>
